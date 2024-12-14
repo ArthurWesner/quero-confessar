@@ -26,9 +26,8 @@ window.onload = () => {
 };
 
 function goToConfessions() {
-    window.location.href = "file:///D:/Documentos/Desktop/Confs/confissoes.html"; // Substitua "confissoes.html" pelo caminho da sua página de confissões
+    window.location.href = "confissoes.html"; // Caminho relativo, sem "file://"
 }
-
 
 let confessionCodeCounter = 0; // Contador para gerar códigos únicos
 
