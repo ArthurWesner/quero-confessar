@@ -26,8 +26,9 @@ window.onload = () => {
 };
 
 function goToConfessions() {
-    window.location.href = "https://arthurwesner.github.io/quero-confessar/quero-confessar/confissoes.html"; // Caminho botão julgar//"
+    window.location.href = "/quero-confessar/confissoes.html"; // Botão Julgar
 }
+
 
 let confessionCodeCounter = 0; // Contador para gerar códigos únicos
 
