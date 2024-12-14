@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confissões</title>
+    <style>
+        /* Estilizando a barra de rolagem no navegador Webkit (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 10px;
+            /* Largura da barra de rolagem */
+            height: 10px;
+            /* Altura da barra de rolagem horizontal */
+        }
+
+        /* Estilizando a parte "track" (área de fundo da barra de rolagem) */
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            /* Cor do fundo da área da barra de rolagem */
+            border-radius: 10px;
+            /* Arredondar os cantos */
+        }
+
+        /* Estilizando o "thumb" (parte deslizante da barra de rolagem) */
+        ::-webkit-scrollbar-thumb {
+            background-color: #ff0000;
+            /* Cor do "thumb" (a parte que se move) */
+            border-radius: 10px;
+            /* Arredondar os cantos */
+            border: 2px solid #ffffff;
+            /* Borda ao redor do "thumb" */
+        }
+
+        /* Estilizando o "thumb" quando ele é focado */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #cc0000;
+            /* Cor do "thumb" quando passa o mouse */
+        }
+
+        /* Barra de rolagem horizontal */
+        ::-webkit-scrollbar-horizontal {
+            height: 12px;
+            /* Definindo altura para a barra horizontal */
+        }
+
+        /* Barra de rolagem vertical */
+        ::-webkit-scrollbar-vertical {
+            width: 12px;
+            /* Definindo largura para a barra vertical */
+        }
+
+
+        /* Adicione esta classe no seu arquivo CSS */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+
+        /* Defina a animação */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 3;
+            }
+        }
+
+
+        /* Estilos gerais do corpo */
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 1s ease, color 1s ease;
+        }
+
+        /* Contêiner principal */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #ff0000;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #ff0000;
+        }
+
+        /* Top container */
+        .top-container {
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: 10px 20px;
+            gap: 10px;
+            border-bottom: 1px solid #ff0000;
+            /* Adiciona a linha vermelha abaixo do cabeçalho */
+            padding-bottom: 10px;
+            /* Espaçamento entre o texto e a linha */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 80px;
+            max-width: 100%;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            flex-grow: 1;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 0 20px;
+            font-size: 18px;
+            border: 1px solid #000000;
+            border-radius: 25px;
+            box-sizing: border-box;
+            height: 45px;
+            line-height: 50px;
+            display: block;
+        }
+
+        .search-bar input[type="text"]:focus {
+            border: 2px solid #ff0000;
+            outline: none;
+        }
+
+        /* Estilo de botões */
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #ff0000;
+            color: #ffffff;
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        /* Contêiner de botões de categoria */
+        .categories-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        /* Estilo para os botões de categoria */
+        .category {
+            padding: 10px 20px;
+            /* Uniformizando o padding com os outros botões */
+            background-color: #000000;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .category:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .category.active {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #ffffff;
+        }
+
+        /* Estilo para os botões de pesquisa */
+        .search-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .search-buttons button {
+            padding: 10px 20px;
+            /* Uniformizando o padding */
+            background-color: #ff0000;
+            color: #ffffff;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        .search-buttons button:hover {
+            background-color: #cc0000;
+        }
+
+        .search-buttons button:active {
+            background-color: #000000;
+            transform: scale(0.95);
+        }
+
+        /* Estilo para a lista de confissões */
+        .confession-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .confession {
+            border-bottom: 1px solid #ff0000;
+            padding: 20px 0;
+        }
+
+        .confession p {
+            font-size: 1rem;
+        }
+
+        /* Modo escuro */
+        body.dark-mode {
+            background-color: #000000;
+            color: #ffffff;
+            transition: background-color 1s ease, color 1s ease;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode .category,
+        body.dark-mode .search-buttons button,
+        body.dark-mode .confession p {
+            color: #ffffff;
+        }
+
+        /* Animação de fade-in */
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+
+<body class="fade-in">
+    <div class="top-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+
+
+        <!-- Barra de busca -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Procure pelo código ou palavras-chave">
+        </div>
+
+        <!-- Botões de categorias e pesquisa -->
+        <div class="categories-buttons">
+            <div class="category" onclick="setActiveCategory(this)">Ação</div>
+            <div class="category" onclick="setActiveCategory(this)">Reflexão</div>
+            <div class="category" onclick="setActiveCategory(this)">Desejo</div>
+            <div class="category" onclick="setActiveCategory(this)">Medo</div>
+            <div class="category" onclick="setActiveCategory(this)">Culpa</div>
+            <div class="category" onclick="setActiveCategory(this)">Obscuro</div>
+            <div class="search-buttons">
+                <button onclick="searchConfessions()">Pesquisar</button>
+                <button onclick="clearSearch()">Limpar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container fade-in">
+        <div class="confession-list"></div>
+    </div>
+
+    <script>
+        // Configurações da planilha
+        const SHEET_ID = "1o_YxvOP61KfqGb5Kd4_HcBElvMm8hBCuc2qLB2AHytw";
+        const SHEET_NAME = "Planilha_Confissões";
+        const API_KEY = "AIzaSyAuXC4vqz_oOnm7qkUJ4ioBIsAHBk2WjrE";
+
+        // Variável global para armazenar todas as confissões
+        let allConfessions = [];
+
+        // Função para coletar os dados da planilha usando Axios
+        function coletar() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+
+            axios.get(url)
+                .then(response => {
+                    const rows = response.data.values;
+                    if (!rows || rows.length === 0) {
+                        console.error("Nenhuma confissão encontrada.");
+                        return;
+                    }
+
+                    // Armazena as confissões na variável global
+                    allConfessions = rows.slice(1).map(row => ({
+                        code: row[0] || "Sem Código",         // A1: Código
+                        text: row[1] || "Sem Confissão",      // B1: Confissão
+                        category: row[2] || "Sem Categoria",  // C1: Categorias
+                    }));
+
+                    // Renderiza todas as confissões inicialmente
+                    renderConfessions(allConfessions);
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar confissões:", error);
+                });
+        }
+
+        // Função para renderizar confissões na página
+        function renderConfessions(confessions) {
+            const confessionList = document.querySelector('.confession-list');
+            confessionList.innerHTML = '';
+
+            if (confessions.length === 0) {
+                confessionList.innerHTML = '<p>Nenhuma confissão encontrada.</p>';
+                return;
+            }
+
+            // Inverter a ordem das confissões para que as mais recentes apareçam primeiro
+            const reversedConfessions = [...confessions].reverse();
+
+            reversedConfessions.forEach(confession => {
+                const confessionDiv = document.createElement('div');
+                confessionDiv.classList.add('confession');
+                confessionDiv.innerHTML = `
+                    <h2>CONFISSÃO: ${confession.code}</h2>
+                    <p>${confession.text}</p>
+                `;
+                confessionList.appendChild(confessionDiv);
+            });
+        }
+
+        // Função para limpar a barra de pesquisa e categorias
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => category.classList.remove('active'));
+
+            // Remove o estilo "Obscuro" do corpo da página
+            document.body.classList.remove('dark-mode');
+
+            // Renderiza todas as confissões novamente
+            renderConfessions(allConfessions);
+        }
+
+        // Função para definir a categoria ativa e filtrar confissões
+        function setActiveCategory(element) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => category.classList.remove('active'));
+
+            if (element.textContent === "Obscuro") {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+
+            element.classList.add('active');
+
+            // Filtra confissões pela categoria selecionada
+            const selectedCategory = element.textContent;
+            const filteredConfessions = allConfessions.filter(confession => confession.category === selectedCategory);
+            renderConfessions(filteredConfessions);
+        }
+
+        // Função para buscar confissões por palavras-chave
+        function searchConfessions() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredConfessions = allConfessions.filter(confession =>
+                confession.text.toLowerCase().includes(query) || confession.code.toLowerCase().includes(query)
+            );
+            renderConfessions(filteredConfessions);
+        }
+
+        // Inicia a coleta ao carregar a página
+        window.onload = coletar;
+    </script>
+</body>
+
+</html>

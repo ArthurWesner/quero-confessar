@@ -1,0 +1,377 @@
+/* Reset de estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Títulos e subtítulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+}
+
+/* Links e Botões */
+a, .category-button, .submit-button, .privacy-link {
+    font-family: Arial, sans-serif;
+}
+
+/* Texto explicativo */
+.info-text, .dark-message, .terms-check label {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos do Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 1.5s ease;
+}
+
+/* Título do site */
+h1 {
+    font-size: 5vw;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 1px 7px 7px rgba(104, 103, 103, 0.7);
+    z-index: 10;
+    transition: opacity 1s ease;
+    animation: tremer 0.1s infinite ease-in-out;
+}
+
+/* Animação de tremor */
+@keyframes tremer {
+    0% {
+        transform: translate(0, 0);
+    }
+    15% {
+        transform: translate(-5px, 0);
+    }
+    30% {
+        transform: translate(5px, 0);
+    }
+    45% {
+        transform: translate(0, -5px);
+    }
+    60% {
+        transform: translate(0, 5px);
+    }
+    75% {
+        transform: translate(-5px, 0);
+    }
+    90% {
+        transform: translate(5px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Texto explicativo */
+.info-text {
+    font-size: 1vw;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 80%;
+    z-index: 10;
+    transition: opacity 1s ease;
+}
+
+/* Contêiner de botões */
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    z-index: 10;
+    transition: opacity 1s ease;
+    justify-content: center;
+}
+
+/* Estilos dos botões */
+.confess-button,
+.judge-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1vw;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confess-button {
+    background-color: #ff0000;
+}
+
+.confess-button:hover {
+    background-color: #ff6666;
+}
+
+.judge-button {
+    background-color: #1e90ff;
+}
+
+.judge-button:hover {
+    background-color: #6495ed;
+}
+
+/* Mensagem Sombria */
+.dark-message {
+    position: absolute;
+    font-size: 2vw;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    display: none;
+}
+
+/* Caixa de texto para confissão */
+.confession-box {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    font-size: 1.2vw;
+    transition: all 1.5s ease;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+    color: #333;
+    z-index: 20;
+    resize: none;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Caixa de texto expandida */
+.expanded {
+    width: 50vw;
+    height: 60vh;
+    opacity: 1;
+    padding: 10px;
+    border-color: #dd3a3a;
+    position: relative;
+    top: auto;
+    transform: translateY(-30%);
+}
+
+/* Banner Responsivo */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    margin-top: -170px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+
+/* Caixa de seleção e termos */
+.terms-check {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    font-size: 1vw;
+    margin-top: 20px;
+}
+
+.terms-check label {
+    font-size: 1vw;
+    color: #000;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #dd3a3a;
+    border-color: #dd3a3a;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="checkbox"]:hover {
+    border-color: #af2424;
+    background-color: #af2424;
+}
+
+/* Botões de categoria */
+.categories-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.category-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-button.selected-category {
+    background-color: #dd3a3a;
+    color: white;
+}
+
+.category-button:hover {
+    background-color: #dd3a3a;
+}
+
+/* Botão de envio */
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dd3a3a;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.submit-button:disabled {
+    cursor: not-allowed;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background-color: #f00;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9vw;
+    display: none;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Ícone de bloqueio no botão desabilitado */
+#submitButton:disabled {
+    cursor: not-allowed;
+    position: relative;
+}
+
+/* Estilo do Tooltip */
+#tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+/* Transição suave de opacidade */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* Animação de escurecimento */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+button.clicked {
+    background-color: #aa0000;
+    transform: scale(0.98);
+    box-shadow: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#optionsBanner {
+    transform: translateY(-40px);
+}
+
+.privacy-link {
+    display: block;
+    font-size: 1vw;
+    margin-top: 10px;
+    color: #f00;
+    text-decoration: underline;
+}
+
+.privacy-link:hover {
+    color: #aa0000;
+}
+
+/* Estilo para o contêiner do logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%; /* Ajuste conforme necessário */
+    width: 100%;
+    z-index: 20;
+}
+
+/* Estilo para a imagem do logo */
+.logo {
+    width: auto; /* Ajusta o tamanho automaticamente */
+    height: 120px; /* Ajuste a altura conforme necessário */
+    max-width: 100%; /* Garante que o logo não ultrapasse a largura da tela */
+}
+
+/* Adicionando transição suave para opacidade */
+.logo-container, h1, .info-text, .button-container {
+    transition: opacity 1s ease-out;
+}
+

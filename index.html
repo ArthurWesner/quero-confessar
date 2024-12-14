@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quero Confessar</title>
+    <!-- Carregar o script da API do Google -->
+    <script src="https://apis.google.com/js/api.js"
+        onerror="alert('Falha ao carregar a API do Google! Verifique a conexão.')"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <!-- Título e Frase Explicativa -->
+    <h1>Quero Confessar</h1>
+    <p class="info-text">Sinta-se à vontade para abrir seu coração; porém, esteja ciente de que poderá receber opiniões
+        variadas.</p>
+
+    <!-- Contêiner dos botões "CONFESSAR" e "JULGAR" -->
+    <section class="button-container">
+        <button class="confess-button" onclick="startConfession()">CONFESSAR</button>
+        <button class="judge-button" id="judgeButton" onclick="goToConfessions()">JULGAR</button>
+    </section>
+
+    <!-- Mensagem Sombria -->
+    <div id="dark-message" class="dark-message">
+        ALGUNS SEGREDOS SÃO PESADOS DEMAIS PARA CARREGAR SOZINHO!
+    </div>
+
+    <!-- Caixa de texto para confissão -->
+    <section>
+        <textarea id="confessionBox" class="confession-box" placeholder="Escreva sua confissão aqui..."></textarea>
+    </section>
+
+    <!-- Banner responsivo abaixo da caixa de texto -->
+    <section class="banner" id="optionsBanner">
+        <!-- Contêiner de botões de categorias -->
+        <div class="categories-container">
+            <button class="category-button" aria-label="Categoria Ação" onclick="selectCategory('Ação')">Ação</button>
+            <button class="category-button" aria-label="Categoria Reflexão"
+                onclick="selectCategory('Reflexão')">Reflexão</button>
+            <button class="category-button" aria-label="Categoria Desejo"
+                onclick="selectCategory('Desejo')">Desejo</button>
+            <button class="category-button" aria-label="Categoria Medo" onclick="selectCategory('Medo')">Medo</button>
+            <button class="category-button" aria-label="Categoria Culpa"
+                onclick="selectCategory('Culpa')">Culpa</button>
+            <button class="category-button" aria-label="Categoria Obscuro"
+                onclick="selectCategory('Obscuro')">Obscuro</button>
+        </div>
+
+        <div>
+            <a href="termos.html" class="privacy-link" aria-label="Termo de Uso e Política de Privacidade">Termo de Uso
+                e
+                Política de Privacidade</a>
+        </div>
+
+        <!-- Checkbox de confirmação dos termos -->
+        <div class="terms-check">
+            <input type="checkbox" id="termsCheckbox" onclick="checkTermsAndShowButton()">
+            <label for="termsCheckbox">Li e aceito os Termos e Condições</label>
+        </div>
+
+        <!-- Botão de envio da confissão -->
+        <button id="submitButton" class="submit-button" disabled>Enviar Confissão</button>
+    </section>
+
+
+    <!-- Tooltip de Mensagem -->
+    <div id="tooltip" class="tooltip" style="display: none;">Preencha todos os campos!</div>
+
+    <!-- Carregar o seu script após o carregamento da página -->
+    <script src="https://apis.google.com/js/api.js"></script> <!-- Carregar a API do Google -->
+    <script src="script.js"></script> <!-- Carregar seu script depois -->
+
+</body>
+
+</html>
