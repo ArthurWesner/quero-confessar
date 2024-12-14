@@ -26,7 +26,7 @@ window.onload = () => {
 };
 
 function goToConfessions() {
-    window.location.href = "/quero-confessar/confissoes.html"; // Botão Julgar
+    window.location.href = "confissoes.html"; // Botão Julgar
 }
 
 
