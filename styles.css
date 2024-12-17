@@ -142,6 +142,32 @@ h1 {
     color: #000000;
 }
 
+/* Ajuste dos botões */
+.confess-button,
+.judge-button,
+.category-button,
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5vw; /* Tamanho padrão no desktop */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, font-size 0.3s;
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .confess-button,
+    .judge-button,
+    .category-button,
+    .submit-button {
+        font-size: 4vw; /* Tamanho maior para o texto */
+        padding: 12px 8px; /* Ajusta o padding */
+    }
+}
+
+
 /* Mensagem Sombria */
 .dark-message {
     position: absolute;
