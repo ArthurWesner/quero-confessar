@@ -110,6 +110,7 @@ h1 {
 /* Contêiner de botões */
 .button-container {
     display: flex;
+    margin-top: 30px; /* Desce os botões */
     gap: 10px;
     margin-bottom: 20px;
     z-index: 10;
