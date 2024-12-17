@@ -101,7 +101,7 @@ h1 {
     }
 
     .info-text {
-        font-size: 4vw; /* Frase explicativa maior no celular */
+        font-size: 3vw; /* Frase explicativa maior no celular */
         text-align: center; /* Centraliza o texto */
         max-width: 90%; /* Garante que o texto não encoste nas bordas */
     }
