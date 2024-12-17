@@ -103,7 +103,7 @@ h1 {
 /* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
     h1 {
-        font-size: 12vw; /* Título maior no celular */
+        font-size: 8vw; /* Título maior no celular */
         text-align: center; /* Garante centralização */
     }
 
