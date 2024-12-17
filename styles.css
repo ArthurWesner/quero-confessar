@@ -53,22 +53,22 @@ h1 {
         transform: translate(0, 0);
     }
     15% {
-        transform: translate(-5px, 0);
+        transform: translate(-1%, 0);
     }
     30% {
-        transform: translate(5px, 0);
+        transform: translate(1%, 0);
     }
     45% {
-        transform: translate(0, -5px);
+        transform: translate(0, -1%);
     }
     60% {
-        transform: translate(0, 5px);
+        transform: translate(0, 1%);
     }
     75% {
-        transform: translate(-5px, 0);
+        transform: translate(-1%, 0);
     }
     90% {
-        transform: translate(5px, 0);
+        transform: translate(1%, 0);
     }
     100% {
         transform: translate(0, 0);
