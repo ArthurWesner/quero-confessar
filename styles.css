@@ -110,12 +110,15 @@ h1 {
 /* Contêiner de botões */
 .button-container {
     display: flex;
-    margin-top: 30px; /* Desce os botões */
     gap: 10px;
+    margin-top: 50px; /* Desce os botões */
     margin-bottom: 20px;
     z-index: 10;
     transition: opacity 1s ease;
     justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    top: 30px; /* Ajuste adicional para descer */
 }
 
 /* Estilos dos botões */
