@@ -47,31 +47,45 @@ h1 {
     animation: tremer 0.1s infinite ease-in-out;
 }
 
-/* Animação de tremor */
+/* Título do site */
+h1 {
+    font-size: 5vw;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 1px 7px 7px rgba(104, 103, 103, 0.7);
+    z-index: 10;
+    transition: opacity 1s ease;
+    animation: tremer 0.1s infinite ease-in-out;
+}
+
+/* Animação de tremor sutil */
 @keyframes tremer {
     0% {
         transform: translate(0, 0);
     }
-    15% {
-        transform: translate(-1%, 0);
+    20% {
+        transform: translate(-0.5%, 0);
     }
-    30% {
-        transform: translate(1%, 0);
-    }
-    45% {
-        transform: translate(0, -1%);
+    40% {
+        transform: translate(0.5%, 0);
     }
     60% {
-        transform: translate(0, 1%);
+        transform: translate(0, -0.5%);
     }
-    75% {
-        transform: translate(-1%, 0);
-    }
-    90% {
-        transform: translate(1%, 0);
+    80% {
+        transform: translate(0, 0.5%);
     }
     100% {
         transform: translate(0, 0);
+    }
+}
+
+/* Ajuste adicional para dispositivos móveis */
+@media (max-width: 768px) {
+    h1 {
+        animation: tremer 3s infinite ease-in-out; /* Tremor ainda mais sutil em celulares */
     }
 }
 
