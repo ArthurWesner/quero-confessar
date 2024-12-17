@@ -100,6 +100,20 @@ h1 {
     transition: opacity 1s ease;
 }
 
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8vw; /* Título maior no celular */
+        text-align: center; /* Garante centralização */
+    }
+
+    .info-text {
+        font-size: 4vw; /* Frase explicativa maior no celular */
+        text-align: center; /* Centraliza o texto */
+        max-width: 90%; /* Garante que o texto não encoste nas bordas */
+    }
+}
+
 /* Contêiner de botões */
 .button-container {
     display: flex;
