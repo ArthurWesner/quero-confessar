@@ -82,13 +82,6 @@ h1 {
     }
 }
 
-/* Ajuste adicional para dispositivos móveis */
-@media (max-width: 768px) {
-    h1 {
-        animation: tremer 3s infinite ease-in-out; /* Tremor ainda mais sutil em celulares */
-    }
-}
-
 /* Texto explicativo */
 .info-text {
     font-size: 1vw;
