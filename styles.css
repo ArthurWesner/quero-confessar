@@ -169,32 +169,35 @@ h1 {
 /* Caixa de texto para confissão */
 .confession-box {
     position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    font-size: 1.2vw;
-    transition: all 1.5s ease;
+    width: 90%;
+    height: 40vh;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 1;
+    font-size: 1rem;
+    transition: all 0.3s ease;
     border: 2px solid #ccc;
     border-radius: 5px;
     padding: 12px;
     color: #333;
-    z-index: 20;
+    z-index: 100;
     resize: none;
     max-width: 100vw;
     word-wrap: break-word;
     box-sizing: border-box;
-    font-size: 16px; /* Evita zoom automático no mobile */
+    background-color: #fff;
 }
 
 /* Caixa de texto expandida */
 .expanded {
-    width: 50vw;
-    height: 60vh;
-    opacity: 1;
+    width: 90%;
+    height: 50vh;
     padding: 10px;
     border-color: #dd3a3a;
-    position: relative;
-    top: auto;
+    position: absolute;
+    top: 2%;
+    z-index: 100;
 }
 
 /* Banner Responsivo */
@@ -205,10 +208,13 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     max-width: 90%;
-    margin-top: -170px;
+    margin-top: 20px;
     text-align: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease;
+    position: relative;
+    top: 60%;
+    z-index: 10;
 }
 
 /* Caixa de seleção e termos */
