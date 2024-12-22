@@ -14,22 +14,23 @@
 
 <body>
 
-    <!-- Logo -->
-    <div class="logo-container">
+    <div class="banner-container">
+        <!-- Logo -->
         <img src="logo.png" alt="Logo" class="logo">
+        
+        <!-- Título -->
+        <h1>QUERO CONFESSAR</h1>
+        
+        <!-- Texto explicativo -->
+        <p class="info-text">Sinta-se à vontade para abrir seu coração; porém, esteja ciente de que poderá receber opiniões variadas.</p>
+        
+        <!-- Botões -->
+        <div class="button-container">
+            <button class="confess-button" onclick="startConfession()">CONFESSAR</button>
+            <button class="judge-button" onclick="goToConfessions()">JULGAR</button>
+        </div>
     </div>
-
-    <!-- Título e Frase Explicativa -->
-    <h1>Quero Confessar</h1>
-    <p class="info-text">Sinta-se à vontade para abrir seu coração; porém, esteja ciente de que poderá receber opiniões
-        variadas.</p>
-
-    <!-- Contêiner dos botões "CONFESSAR" e "JULGAR" -->
-    <section class="button-container">
-        <button class="confess-button" onclick="startConfession()">CONFESSAR</button>
-        <button class="judge-button" id="judgeButton" onclick="goToConfessions()">JULGAR</button>
-    </section>
-
+    
     <!-- Mensagem Sombria -->
     <div id="dark-message" class="dark-message">
         ALGUNS SEGREDOS SÃO PESADOS DEMAIS PARA CARREGAR SOZINHO!
