@@ -94,6 +94,17 @@ h1 {
     }
 }
 
+
+/* Estilo para o contêiner do logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 20;
+    position: static; /* Remover a posição absoluta */
+}
+
 /* Contêiner de botões */
 .button-container {
     display: flex;
