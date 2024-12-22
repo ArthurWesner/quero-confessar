@@ -174,7 +174,8 @@ h1 {
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    opacity: 1;
+    opacity: 0; /* Invisível inicialmente */
+    display: none; /* Não ocupa espaço inicialmente */
     font-size: 1rem;
     transition: all 0.3s ease;
     border: 2px solid #ccc;
@@ -191,6 +192,8 @@ h1 {
 
 /* Caixa de texto expandida */
 .expanded {
+    display: block; /* Torna visível */
+    opacity: 3; /* Aparece gradualmente */
     width: 90%;
     height: 50vh;
     padding: 10px;
