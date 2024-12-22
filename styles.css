@@ -169,12 +169,12 @@ h1 {
 /* Caixa de texto para confissão */
 .confession-box {
     position: fixed;
-    width: 0;
-    height: 0;
-    opacity: 0;
+    width: 90%;
+    height: 40vh;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+    opacity: 0; /* Invisível inicialmente */
     display: none; /* Não ocupa espaço inicialmente */
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -192,13 +192,8 @@ h1 {
 
 /* Caixa de texto expandida */
 .expanded {
-    width: 50vw;
-    height: 60vh;
+    display: block; /* Torna visível */
     opacity: 1;
-    padding: 10px;
-    border-color: #dd3a3a;
-    position: relative;
-    top: auto;
 }
 
 /* Banner Responsivo */
@@ -209,10 +204,12 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     max-width: 90%;
-    margin-top: -170px;
+    margin-top: auto;
     text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 /* Caixa de seleção e termos */
