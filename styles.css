@@ -169,12 +169,12 @@ h1 {
 /* Caixa de texto para confissão */
 .confession-box {
     position: fixed;
-    width: 90%;
-    height: 40vh;
+    width: 0;
+    height: 0;
+    opacity: 0;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    opacity: 0; /* Invisível inicialmente */
     display: none; /* Não ocupa espaço inicialmente */
     font-size: 1rem;
     transition: all 0.3s ease;
