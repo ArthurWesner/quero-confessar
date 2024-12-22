@@ -168,10 +168,10 @@ h1 {
 
 /* Caixa de texto para confissão */
 .confession-box {
-    position: absolute;
+    position: fixed;
     width: 90%;
     height: 40vh;
-    top: 2%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, 0);
     opacity: 1;
@@ -195,8 +195,8 @@ h1 {
     height: 50vh;
     padding: 10px;
     border-color: #dd3a3a;
-    position: absolute;
-    top: 2%;
+    position: fixed;
+    top: 0;
     z-index: 100;
 }
 
