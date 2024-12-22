@@ -47,19 +47,6 @@ h1 {
     animation: tremer 0.1s infinite ease-in-out;
 }
 
-/* Título do site */
-h1 {
-    font-size: 5vw;
-    color: #fff;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    text-shadow: 1px 7px 7px rgba(104, 103, 103, 0.7);
-    z-index: 10;
-    transition: opacity 1s ease;
-    animation: tremer 0.1s infinite ease-in-out;
-}
-
 /* Animação de tremor sutil */
 @keyframes tremer {
     0% {
@@ -156,9 +143,11 @@ h1 {
 /* Ajuste para dispositivos móveis */
 @media (max-width: 768px) {
     .confession-box.expanded {
-        width: 90%; /* Usa 90% da largura da tela */
+        width: 95%; /* Usa quase toda a largura da tela */
         height: 50vh; /* Usa 50% da altura da tela */
-        transform: translateY(0); /* Remove transformações que podem desalinhar */
+        top: 5%; /* Posiciona próximo ao topo */
+        left: 50%;
+        transform: translate(-50%, 0); /* Centraliza horizontalmente */
     }
 }
 
@@ -206,7 +195,6 @@ h1 {
     border-color: #dd3a3a;
     position: relative;
     top: auto;
-    transform: translateY(-30%);
 }
 
 /* Banner Responsivo */
@@ -222,7 +210,6 @@ h1 {
     opacity: 0;
     transition: opacity 1s ease;
 }
-
 
 /* Caixa de seleção e termos */
 .terms-check {
@@ -414,4 +401,3 @@ button.clicked {
 .logo-container, h1, .info-text, .button-container {
     transition: opacity 1s ease-out;
 }
-
