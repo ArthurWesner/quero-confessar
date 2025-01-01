@@ -399,22 +399,23 @@ button.clicked {
     color: #aa0000;
 }
 
-/* Estilo para o contêiner do logo */
+/* Certifique-se de que o contêiner do logo está configurado corretamente */
 .logo-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     position: absolute;
     top: 15%; /* Ajuste conforme necessário */
-    width: 100%;
+    left: 0; /* Garante que o contêiner cobre toda a tela */
+    width: 100%; /* Garante a largura total da tela */
     z-index: 20;
 }
 
 /* Estilo para a imagem do logo */
 .logo {
-    width: auto; /* Ajusta o tamanho automaticamente */
-    height: 120px; /* Ajuste a altura conforme necessário */
-    max-width: 100%; /* Garante que o logo não ultrapasse a largura da tela */
+    width: auto;
+    height: 120px;
+    max-width: 100%;
 }
 
 /* Adicionando transição suave para opacidade */
