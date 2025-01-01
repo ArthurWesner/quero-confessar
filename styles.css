@@ -415,7 +415,7 @@ button.clicked {
 
 /* Estilo para a imagem do logo */
 .logo {
-    width: 20vw; /* A largura da imagem será 20% da largura da viewport */
+    width: 10vw; /* A largura da imagem será 20% da largura da viewport */
     height: flex; /* Mantém a proporção da altura conforme a largura */
     max-width: 100%; /* Garante que a imagem não ultrapasse a largura disponível */
     margin-bottom: 7%;
