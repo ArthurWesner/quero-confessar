@@ -80,20 +80,6 @@ h1 {
     transition: opacity 1s ease;
 }
 
-/* Ajustes para dispositivos móveis */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 8vw; /* Título maior no celular */
-        text-align: center; /* Garante centralização */
-    }
-
-    .info-text {
-        font-size: 3vw; /* Frase explicativa maior no celular */
-        text-align: center; /* Centraliza o texto */
-        max-width: 90%; /* Garante que o texto não encoste nas bordas */
-    }
-}
-
 
 /* Estilo para o contêiner do logo */
 .logo-container {
@@ -421,7 +407,56 @@ button.clicked {
     margin-bottom: 5%;
 }
 
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Título */
+    h1 {
+        font-size: 8vw; /* Título maior no celular */
+        text-align: center; /* Garante centralização */
+    }
+
+    /* Texto explicativo */
+    .info-text {
+        font-size: 3vw; /* Frase explicativa maior no celular */
+        text-align: center; /* Centraliza o texto */
+        max-width: 90%; /* Garante que o texto não encoste nas bordas */
+    }
+
+    /* Container do banner */
+    .banner-container {
+        gap: 10px; /* Reduz o espaçamento em telas menores */
+    }
+
+    /* Caixa de confissão expandida */
+    .confession-box.expanded {
+        width: 95%; /* Usa quase toda a largura da tela */
+        height: 50vh; /* Usa 50% da altura da tela */
+        top: 5%; /* Posiciona próximo ao topo */
+        left: 50%;
+        transform: translate(-50%, 0); /* Centraliza horizontalmente */
+    }
+
+    /* Caixa de confissão padrão */
+    .confession-box {
+        width: 95%; /* Aumenta a largura da caixa de texto em telas menores */
+        height: 200px; /* Aumenta a altura da caixa de texto */
+    }
+
+    /* Botões de categoria */
+    .category-button {
+        font-size: 4vw; /* Ajusta o tamanho da fonte dos botões em telas menores */
+    }
+
+    /* Links e botões */
+    .privacy-link,
+    .terms-check label,
+    .submit-button {
+        font-size: 3vw; /* Ajusta o tamanho da fonte para outros elementos */
+    }
+}
+
 /* Adicionando transição suave para opacidade */
 .logo-container, h1, .info-text, .button-container {
     transition: opacity 1s ease-out;
 }
+
