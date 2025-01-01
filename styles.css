@@ -125,6 +125,7 @@ h1 {
 .confess-button:hover {
     background-color: #ff6666;
     color: #000000;
+    transform: scale(1.05);
 }
 
 .judge-button {
@@ -135,6 +136,7 @@ h1 {
 .judge-button:hover {
     background-color: #6495ed;
     color: #000000;
+    transform: scale(1.05);
 }
 
 /* Ajuste para dispositivos móveis */
