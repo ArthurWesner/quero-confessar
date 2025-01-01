@@ -429,12 +429,12 @@ button.clicked {
         gap: 10px; /* Reduz o espaçamento em telas menores */
     }
     
+    /* Confessar e Julgar */
     .confess-button,
     .judge-button {
         padding: 15px 25px; /* Aumenta o preenchimento dos botões */
-        font-size: 2vw; /* Aumenta o tamanho da fonte */
+        font-size: 4vw; /* Aumenta o tamanho da fonte */
     }
-
 
     /* Caixa de confissão expandida */
     .confession-box.expanded {
