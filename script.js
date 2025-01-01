@@ -29,7 +29,6 @@ function goToConfessions() {
     window.location.href = "confissoes.html"; // Botão Julgar
 }
 
-
 let confessionCodeCounter = 0; // Contador para gerar códigos únicos
 
 // Função para carregar a API do Google e iniciar o cliente
@@ -67,8 +66,6 @@ function checkTermsAndShowButton() {
     }
 }
 
-
-
 // Mostra tooltip se campos não estiverem preenchidos corretamente
 function showTooltipIfIncomplete(event) {
     const tooltip = document.getElementById('tooltip');
@@ -87,7 +84,6 @@ function showTooltipIfIncomplete(event) {
         tooltip.style.display = 'block';
     }
 }
-
 
 // Esconde tooltip
 function hideTooltip() {
@@ -141,10 +137,12 @@ function startConfession() {
             darkMessage.style.opacity = '0';
 
             setTimeout(() => {
+                darkMessage.style.display = 'none';
                 document.body.style.backgroundColor = '#fff';
                 confessionBox.classList.add('expanded');
+                confessionBox.style.display = 'block';
                 confessionBox.style.opacity = '1';
-                optionsBanner.style.display = 'block';
+                optionsBanner.style.display = 'flex';
                 optionsBanner.style.opacity = '1';
             }, 1000);
         }, 3000);
@@ -199,9 +197,6 @@ function sendToGoogleSheets(confession, category, days) {
     });
 }
 
-
-
-
 // Tratar clique no botão "Enviar Confissão"
 function handleSubmitClick() {
     const confession = document.getElementById('confessionBox').value.trim();
@@ -236,10 +231,6 @@ function handleSubmitClick() {
         }
     });
 }
-
-
-
-
 
 // Verifica se o código já está usado na planilha
 async function isCodeUsed(code) {
