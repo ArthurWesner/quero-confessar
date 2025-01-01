@@ -432,7 +432,7 @@ button.clicked {
     /* Confessar e Julgar */
     .confess-button,
     .judge-button {
-        padding: 15px 25px; /* Aumenta o preenchimento dos botões */
+        padding: 10px 20px; /* Aumenta o preenchimento dos botões */
         font-size: 4vw; /* Aumenta o tamanho da fonte */
     }
 
