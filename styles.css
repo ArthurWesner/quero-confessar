@@ -447,6 +447,11 @@ button.clicked {
         font-size: 4vw; /* Ajusta o tamanho da fonte dos botões em telas menores */
     }
 
+    /* Tamanho do logo */
+    .logo {
+        width: 20vw;
+    }
+
     /* Links e botões */
     .privacy-link,
     .terms-check label,
@@ -454,9 +459,3 @@ button.clicked {
         font-size: 3vw; /* Ajusta o tamanho da fonte para outros elementos */
     }
 }
-
-/* Adicionando transição suave para opacidade */
-.logo-container, h1, .info-text, .button-container {
-    transition: opacity 1s ease-out;
-}
-
