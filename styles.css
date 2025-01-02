@@ -273,10 +273,12 @@ input[type="checkbox"]:hover {
 /* Contêiner de categorias */
 .categories-container {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-    position: relative;
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaçamento entre os botões */
+    position: absolute; /* Para posicionamento personalizado */
+    top: 60%; /* Ajuste a altura para descer mais (50% é o meio da tela) */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, 0); /* Ajusta o alinhamento exato */
     flex-wrap: nowrap; /* Botões lado a lado */
 }
 
