@@ -274,7 +274,7 @@ a, .category-button, .submit-button, .privacy-link {
     position: fixed;
     width: 90%;
     height: 50%;
-    top: 0;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
     opacity: 0; /* Invisível inicialmente */
