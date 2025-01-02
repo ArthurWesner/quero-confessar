@@ -29,6 +29,7 @@ function goToConfessions() {
     window.location.href = "confissoes.html"; // Botão Julgar
 }
 
+
 let confessionCodeCounter = 0; // Contador para gerar códigos únicos
 
 // Função para carregar a API do Google e iniciar o cliente
@@ -66,6 +67,8 @@ function checkTermsAndShowButton() {
     }
 }
 
+
+
 // Mostra tooltip se campos não estiverem preenchidos corretamente
 function showTooltipIfIncomplete(event) {
     const tooltip = document.getElementById('tooltip');
@@ -84,6 +87,7 @@ function showTooltipIfIncomplete(event) {
         tooltip.style.display = 'block';
     }
 }
+
 
 // Esconde tooltip
 function hideTooltip() {
@@ -107,47 +111,55 @@ function selectCategory(categoryName) {
 
 // Função para transição ao clicar no botão "CONFESSAR"
 function startConfession() {
-    const title = document.querySelector('h1');
-    const infoText = document.querySelector('.info-text');
-    const buttonContainer = document.querySelector('.button-container');
-    const privacyLink = document.querySelector('.privacy-link');
+    console.log("Iniciando animação do botão 'CONFESSAR'");
+
+    const bannerContainer = document.querySelector('.banner-container'); // Seleciona o container do banner
     const darkMessage = document.getElementById('dark-message');
     const confessionBox = document.getElementById('confessionBox');
     const optionsBanner = document.getElementById('optionsBanner');
-    const logoContainer = document.querySelector('.logo-container'); // Selecione o contêiner do logo
+    const body = document.body; // Seleciona o corpo da página
 
-    if (!title || !infoText || !buttonContainer || !privacyLink || !darkMessage || !confessionBox || !optionsBanner || !logoContainer) {
-        console.error("Um ou mais elementos necessários não foram encontrados.");
+    if (!bannerContainer || !darkMessage || !confessionBox || !optionsBanner || !body) {
+        console.error("Alguns elementos necessários não foram encontrados.");
         return;
     }
 
-    // Faz o logo desaparecer
-    logoContainer.style.opacity = '0';
-
-    // Outros elementos da página também desaparecem
-    title.style.opacity = '0';
-    infoText.style.opacity = '0';
-    buttonContainer.style.opacity = '0';
+    // Esconde o banner com uma transição suave
+    bannerContainer.style.transition = 'opacity 1s ease';
+    bannerContainer.style.opacity = '0';
 
     setTimeout(() => {
+        // Após a transição, oculta completamente o banner
+        bannerContainer.style.display = 'none';
+
+        // Exibe a mensagem sombria
+        console.log("Exibindo mensagem sombria.");
         darkMessage.style.display = 'block';
         darkMessage.style.opacity = '1';
 
         setTimeout(() => {
+            console.log("Ocultando mensagem sombria.");
             darkMessage.style.opacity = '0';
 
             setTimeout(() => {
-                darkMessage.style.display = 'none';
-                document.body.style.backgroundColor = '#fff';
-                confessionBox.classList.add('expanded');
+                console.log("Mudando o fundo para branco e exibindo a caixa de texto e opções.");
+
+                // Muda o fundo da página para branco
+                body.style.transition = 'background-color 1s ease';
+                body.style.backgroundColor = '#ffffff'; // Define o fundo branco
+
+                // Exibe a caixa de texto e os botões com animação
                 confessionBox.style.display = 'block';
                 confessionBox.style.opacity = '1';
+                confessionBox.classList.add('expanded'); // Adiciona uma animação suave para a caixa de texto
+
                 optionsBanner.style.display = 'flex';
                 optionsBanner.style.opacity = '1';
-            }, 1000);
-        }, 3000);
-    }, 1000);
+            }, 1000); // Espera mais 1 segundo após a mensagem sombria desaparecer
+        }, 3000); // A frase sombria vai desaparecer após 3 segundos
+    }, 1000); // Espera 1 segundo para dar tempo da transição de opacidade do banner
 }
+
 
 // Gera um código único usando a data e hora atual, na ordem: hora, minuto, segundo, dia, mês, ano, sem separadores
 function generateConfessionCode() {
@@ -197,6 +209,9 @@ function sendToGoogleSheets(confession, category, days) {
     });
 }
 
+
+
+
 // Tratar clique no botão "Enviar Confissão"
 function handleSubmitClick() {
     const confession = document.getElementById('confessionBox').value.trim();
@@ -231,6 +246,10 @@ function handleSubmitClick() {
         }
     });
 }
+
+
+
+
 
 // Verifica se o código já está usado na planilha
 async function isCodeUsed(code) {
