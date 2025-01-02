@@ -80,7 +80,6 @@ h1 {
     transition: opacity 1s ease;
 }
 
-
 /* Estilo para o contêiner do logo */
 .logo-container {
     display: flex;
@@ -274,12 +273,11 @@ input[type="checkbox"]:hover {
 /* Contêiner de categorias */
 .categories-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
-    top: 10%;
+    flex-wrap: nowrap; /* Botões lado a lado */
 }
 
 /* Botões de categoria */
