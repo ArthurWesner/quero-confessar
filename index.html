@@ -45,32 +45,22 @@
     <section class="banner" id="optionsBanner">
         <!-- Contêiner de botões de categorias -->
         <div class="categories-container">
-            <button class="category-button" aria-label="Categoria Ação" onclick="selectCategory('Ação')">Ação</button>
-            <button class="category-button" aria-label="Categoria Reflexão"
-                onclick="selectCategory('Reflexão')">Reflexão</button>
-            <button class="category-button" aria-label="Categoria Desejo"
-                onclick="selectCategory('Desejo')">Desejo</button>
-            <button class="category-button" aria-label="Categoria Medo" onclick="selectCategory('Medo')">Medo</button>
-            <button class="category-button" aria-label="Categoria Culpa"
-                onclick="selectCategory('Culpa')">Culpa</button>
-            <button class="category-button" aria-label="Categoria Obscuro"
-                onclick="selectCategory('Obscuro')">Obscuro</button>
-        </div>
+    <div class="category-buttons">
+        <button class="category-button">Ação</button>
+        <button class="category-button">Reflexão</button>
+        <button class="category-button">Desejo</button>
+        <button class="category-button">Medo</button>
+        <button class="category-button">Culpa</button>
+        <button class="category-button">Obscuro</button>
+    </div>
+    <a href="termos.html" class="privacy-link">Termo de Uso e Política de Privacidade</a>
+    <div class="terms-check">
+        <input type="checkbox" id="termsCheckbox">
+        <label for="termsCheckbox">Li e aceito os Termos e Condições</label>
+    </div>
+    <button id="submitButton" class="submit-button" disabled>Enviar Confissão</button>
+</div>
 
-        <div>
-            <a href="termos.html" class="privacy-link" aria-label="Termo de Uso e Política de Privacidade">Termo de Uso
-                e
-                Política de Privacidade</a>
-        </div>
-
-        <!-- Checkbox de confirmação dos termos -->
-        <div class="terms-check">
-            <input type="checkbox" id="termsCheckbox" onclick="checkTermsAndShowButton()">
-            <label for="termsCheckbox">Li e aceito os Termos e Condições</label>
-        </div>
-
-        <!-- Botão de envio da confissão -->
-        <button id="submitButton" class="submit-button" disabled>Enviar Confissão</button>
     </section>
 
 
