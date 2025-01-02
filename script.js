@@ -36,8 +36,8 @@ let confessionCodeCounter = 0; // Contador para gerar códigos únicos
 function loadClient() {
     gapi.client
         .init({
-            apiKey: 'YOUR_API_KEY_HERE', // Use sua chave de API aqui
-            clientId: 'YOUR_CLIENT_ID_HERE', // Use seu Client ID aqui
+            apiKey: 'AIzaSyAuXC4vqz_oOnm7qkUJ4ioBIsAHBk2WjrE', // Use sua chave de API aqui
+            clientId: '460984506489-ipon1httrh530rc8t16112ouepsr37av.apps.googleusercontent.com', // Use seu Client ID aqui
             scope: 'https://www.googleapis.com/auth/spreadsheets',
             discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
         })
