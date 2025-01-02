@@ -243,19 +243,19 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Banner */
 .banner {
-    display: flex;
-    width: 90%; /* O banner agora ocupa toda a largura da tela */
-    height: 80vh; /* O banner ocupa 80% da altura da tela */
+    position: absolute;
+    top: 5%; /* Fixa no topo da tela */
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    width: 100%; /* O banner agora ocupa toda a largura da tela */
+    height: 60vh; /* O banner ocupa 50% da altura da tela */
     justify-content: center;
     align-items: center;
-    left: 50%; /* Centraliza horizontalmente */
+    padding: 10px; /* Borda interna do container */
     transform: translateX(-50%); /* Centraliza ainda mais */
     opacity: 0; /* Começa invisível */
     transition: opacity 0.3s ease;
-    flex-direction: column; /* Faz com que os elementos fiquem empilhados na vertical */
+    box-sizing: border-box;
     align-items: center; /* Centraliza os elementos horizontalmente */
-    gap: 20px; /* Espaçamento entre as divs */
-    padding: 20px; /* Padding para garantir que os elementos não toquem as bordas */
 }
 
 /* Banner visível após a animação */
