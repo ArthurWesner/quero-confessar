@@ -6,21 +6,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Títulos e subtítulos */
-h1, h2, h3, h4, h5, h6 {
-    font-family: Arial, sans-serif;
-}
-
-/* Links e Botões */
-a, .category-button, .submit-button, .privacy-link {
-    font-family: Arial, sans-serif;
-}
-
-/* Texto explicativo */
-.info-text, .dark-message, .terms-check label {
-    font-family: Arial, sans-serif;
-}
-
 /* Estilos do Body */
 body {
     display: flex;
@@ -29,22 +14,125 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: #000;
+    color: #fff;
     overflow: hidden;
     position: relative;
-    transition: background-color 1.5s ease;
+    margin: 0; /* Garante que o body ocupe a tela inteira */
+    padding: 0; /* Remove qualquer padding extra */
+    text-align: center; /* Centraliza o conteúdo textual */
+    transition: background-color 1.5s ease, color 0.5s ease;
 }
 
-/* Título do site */
-h1 {
+/* Títulos e subtítulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links e Botões */
+a, .category-button, .submit-button, .privacy-link {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Texto explicativo */
+.info-text, .dark-message, .terms-check label {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o contêiner do logo */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: absolute;
+    top: 15%; /* Ajuste conforme necessário */
+    left: 0; /* Garante que o contêiner cobre toda a tela */
+    width: 100%; /* Garante a largura total da tela */
+    z-index: 20;
+}
+
+/* Ajuste do Banner com botões e logo */
+.banner-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; /* Empilha elementos verticalmente */
+    height: 100vh; /* Ocupa toda a altura visível da tela */
+    width: 100%; /* Ocupa toda a largura da tela */
+    position: absolute; /* Garante contexto de posicionamento para centralizar */
+    top: 0; /* Centraliza verticalmente */
+    left: 0; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza qualquer texto dentro do contêiner */
+}
+
+
+/* Estilo para a imagem do logo */
+.logo {
+    width: 10vw; /* A largura da imagem será 20% da largura da viewport */
+    height: flex; /* Mantém a proporção da altura conforme a largura */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura disponível */
+    margin-bottom: 5%;
+}
+
+
+
+/* Título do Banner */
+.banner-container h1 {
     font-size: 5vw;
     color: #fff;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
     text-shadow: 1px 7px 7px rgba(104, 103, 103, 0.7);
-    z-index: 10;
-    transition: opacity 1s ease;
+    transition: color 0.3s ease;
     animation: tremer 0.1s infinite ease-in-out;
+}
+
+
+.banner-container .info-text:hover {
+    color: #aaa;
+}
+
+.banner-container .button-container {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões */
+    justify-content: center;
+}
+
+
+
+/* Estilos dos botões */
+.confess-button,
+.judge-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5vw;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, font-size 0.3s, transform 0.2s ease;
+}
+
+.confess-button {
+    background-color: #ff0000;
+    color: #000000;
+}
+
+.confess-button:hover {
+    background-color: #ff6666;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.judge-button {
+    background-color: #1e90ff;
+    color: #000000;
+}
+
+.judge-button:hover {
+    background-color: #6495ed;
+    color: #fff;
+    transform: scale(1.05);
 }
 
 /* Animação de tremor sutil */
@@ -69,6 +157,7 @@ h1 {
     }
 }
 
+
 /* Texto explicativo */
 .info-text {
     font-size: 1vw;
@@ -80,15 +169,7 @@ h1 {
     transition: opacity 1s ease;
 }
 
-/* Estilo para o contêiner do logo */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    z-index: 20;
-    position: static; /* Remover a posição absoluta */
-}
+
 
 /* Contêiner de botões */
 .button-container {
@@ -124,7 +205,6 @@ h1 {
 .confess-button:hover {
     background-color: #ff6666;
     color: #000000;
-    transform: scale(1.05);
 }
 
 .judge-button {
@@ -135,19 +215,9 @@ h1 {
 .judge-button:hover {
     background-color: #6495ed;
     color: #000000;
-    transform: scale(1.05);
 }
 
-/* Ajuste para dispositivos móveis */
-@media (max-width: 768px) {
-    .confession-box.expanded {
-        width: 95%; /* Usa quase toda a largura da tela */
-        height: 50vh; /* Usa 50% da altura da tela */
-        top: 5%; /* Posiciona próximo ao topo */
-        left: 50%;
-        transform: translate(-50%, 0); /* Centraliza horizontalmente */
-    }
-}
+
 
 /* Mensagem Sombria */
 .dark-message {
@@ -164,19 +234,54 @@ h1 {
     display: none;
 }
 
+
+/* Caixa de texto expandida */
+.expanded {
+    display: block; /* Torna visível */
+    opacity: 1;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    width: 90%; /* O banner agora ocupa toda a largura da tela */
+    height: 80vh; /* O banner ocupa 80% da altura da tela */
+    justify-content: center;
+    align-items: center;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza ainda mais */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease;
+    flex-direction: column; /* Faz com que os elementos fiquem empilhados na vertical */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    gap: 20px; /* Espaçamento entre as divs */
+    padding: 20px; /* Padding para garantir que os elementos não toquem as bordas */
+}
+
+/* Banner visível após a animação */
+.banner.visible {
+    opacity: 1;
+}
+
+/* Adicionando transição suave para opacidade */
+.logo-container, h1, .info-text, .button-container {
+    transition: opacity 1s ease-out;
+}
+
+
 /* Caixa de texto para confissão */
 .confession-box {
     position: fixed;
     width: 90%;
     height: 50%;
-    top: 5px;
+    top: 0;
     left: 50%;
     transform: translate(-50%, 0);
     opacity: 0; /* Invisível inicialmente */
     display: none; /* Não ocupa espaço inicialmente */
     font-size: 1rem;
     transition: all 0.3s ease;
-    border: 2px solid #ccc;
+    border: 2px solid #fc0404;
     border-radius: 5px;
     padding: 12px;
     color: #333;
@@ -188,52 +293,84 @@ h1 {
     background-color: #fff;
 }
 
-/* Caixa de texto expandida */
-.expanded {
-    display: block; /* Torna visível */
-    opacity: 1;
-}
 
-/* Banner Responsivo */
-.banner {
-    display: none; /* Invisível inicialmente */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 90%;
-    margin-top: auto;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Banner visível após a animação */
-.banner.visible {
+/* Contêiner de categorias */
+.categories-container {
     display: flex;
-    opacity: 1;
+    flex-direction: column; /* Mantém a ordem vertical para os itens dentro do contêiner */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os itens */
+    position: absolute;
+    top: 60%; /* Ajusta a posição vertical */
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-/* Caixa de seleção e termos */
+.categories-container .category-buttons {
+    display: flex; /* Alinha os botões horizontalmente */
+    flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
+    justify-content: center; /* Centraliza os botões dentro do contêiner */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Botões de categoria */
+.category-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-button.selected-category {
+    background-color: #dd3a3a;
+    color: white;
+}
+
+.category-button:hover {
+    background-color: #dd3a3a;
+}
+
+/* Garantir que apenas os botões fiquem lado a lado */
+.categories-container > .category-button {
+    display: inline-flex; /* Alinha botões horizontalmente */
+    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+    gap: 10px; /* Espaçamento entre botões */
+}
+
+/* Link para os termos de uso */
+.privacy-link {
+    display: block;
+    font-size: 1.2vw;
+    margin-top: 10px;
+    color: #f00;
+    text-decoration: underline;
+}
+
+.privacy-link:hover {
+    color: #aa0000;
+}
+
+/* Caixa de seleção de aceitação dos termos */
 .terms-check {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 15px;
     justify-content: center;
-    gap: 10px;
     font-size: 1vw;
     margin-top: 20px;
 }
 
+/* Estilo do label de aceitação */
 .terms-check label {
     font-size: 1vw;
     color: #000;
 }
 
+/* Estilo do checkbox de aceitação */
 input[type="checkbox"] {
     appearance: none;
     width: 20px;
@@ -270,39 +407,6 @@ input[type="checkbox"]:hover {
     background-color: #af2424;
 }
 
-/* Contêiner de categorias */
-.categories-container {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    gap: 10px; /* Espaçamento entre os botões */
-    position: absolute; /* Para posicionamento personalizado */
-    top: 60%; /* Ajuste a altura para descer mais (50% é o meio da tela) */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, 0); /* Ajusta o alinhamento exato */
-    flex-wrap: nowrap; /* Botões lado a lado */
-}
-
-/* Botões de categoria */
-.category-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-    font-size: 1vw;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.category-button.selected-category {
-    background-color: #dd3a3a;
-    color: white;
-}
-
-.category-button:hover {
-    background-color: #dd3a3a;
-}
-
 /* Botão de envio */
 .submit-button {
     padding: 10px 20px;
@@ -316,13 +420,13 @@ input[type="checkbox"]:hover {
     margin-top: 20px;
     opacity: 0.5;
     transition: opacity 0.3s;
-    position: relative;
-    top: 15%;
 }
 
 .submit-button:disabled {
     cursor: not-allowed;
 }
+
+
 
 /* Tooltip */
 .tooltip {
@@ -382,40 +486,6 @@ button.clicked {
     transform: translateY(-40px);
 }
 
-.privacy-link {
-    display: block;
-    font-size: 1vw;
-    margin-top: 20px;
-    color: #f00;
-    text-decoration: underline;
-    text-align: center;
-}
-
-.privacy-link:hover {
-    color: #aa0000;
-}
-
-/* Ajuste do Banner com botões e logo */
-.banner-container {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    flex-direction: column; /* Empilha elementos verticalmente */
-    height: 100vh; /* Ocupa toda a altura visível da tela */
-    width: 100%; /* Ocupa toda a largura da tela */
-    position: absolute; /* Garante contexto de posicionamento para centralizar */
-    top: 0; /* Centraliza verticalmente */
-    left: 0; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza qualquer texto dentro do contêiner */
-}
-
-/* Estilo para a imagem do logo */
-.logo {
-    width: 10vw; /* A largura da imagem será 20% da largura da viewport */
-    height: flex; /* Mantém a proporção da altura conforme a largura */
-    max-width: 100%; /* Garante que a imagem não ultrapasse a largura disponível */
-    margin-bottom: 5%;
-}
 
 /* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
@@ -440,9 +510,10 @@ button.clicked {
     /* Confessar e Julgar */
     .confess-button,
     .judge-button {
-        padding: 10px 20px; /* Aumenta o preenchimento dos botões */
+        padding: 15px 25px; /* Aumenta o preenchimento dos botões */
         font-size: 4vw; /* Aumenta o tamanho da fonte */
     }
+
 
     /* Caixa de confissão expandida */
     .confession-box.expanded {
@@ -476,3 +547,4 @@ button.clicked {
         font-size: 3vw; /* Ajusta o tamanho da fonte para outros elementos */
     }
 }
+
