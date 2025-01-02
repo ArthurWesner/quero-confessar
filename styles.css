@@ -308,7 +308,6 @@ a, .category-button, .submit-button, .privacy-link {
 
 .categories-container .category-buttons {
     display: flex; /* Alinha os botões horizontalmente */
-    flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
     justify-content: center; /* Centraliza os botões dentro do contêiner */
     gap: 10px; /* Espaçamento entre os botões */
 }
