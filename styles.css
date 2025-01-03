@@ -271,6 +271,12 @@ a, .category-button, .submit-button, .privacy-link {
     box-sizing: border-box;
 }
 
+#confessionBox {
+    display: none; /* Inicialmente oculto */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 /* Caixa de texto expandida */
 .expanded {
     display: block !important; /* Força a exibição */
