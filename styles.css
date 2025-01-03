@@ -272,17 +272,20 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Caixa de texto para confissão */
 .confession-box {
-    width: 100%; /* Ocupa 100% do container */
-    height: 100%; /* Ocupa 100% da altura disponível */
-    padding: 10px; /* Pequena borda dentro da caixa de texto */
-    font-size: 16px;
-    border-radius: 5px;
-    border: 2px solid #fc0404;
-    background-color: #fff;
-    color: #333;
-    resize: none; /* Remove o redimensionamento */
-    box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
-  
+    position: absolute; /* ou fixed, dependendo da necessidade */
+    z-index: 9999; /* Valor alto para garantir que fique acima de outros elementos */
+    width: 95%; /* Ajuste conforme necessário */
+    max-width: 600px; /* Limita a largura em telas maiores */
+    height: 200px; /* Ajuste a altura conforme necessário */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para ficar no centro */
+    background-color: #fff; /* Cor de fundo da caixa */
+    color: #000; /* Cor do texto */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    display: block; /* Garante que esteja visível */
 }
     
  
