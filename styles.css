@@ -9,14 +9,13 @@
 /* Estilos do Body */
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: space-between; /* Distribui o espaço entre os elementos fixos */
+    align-items: center;
     height: 100vh;
+    overflow: hidden; /* Impede a rolagem */
     background-color: #000;
     color: #fff;
-    overflow: hidden;
-    position: relative;
     margin: 0; /* Garante que o body ocupe a tela inteira */
     padding: 0; /* Remove qualquer padding extra */
     text-align: center; /* Centraliza o conteúdo textual */
