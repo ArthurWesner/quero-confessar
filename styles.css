@@ -282,8 +282,7 @@ a, .category-button, .submit-button, .privacy-link {
     color: #333;
     resize: none; /* Remove o redimensionamento */
     box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
-    opacity: 0; /* Invisível inicialmente */
-    display: none; /* Não ocupa espaço inicialmente */
+  
 }
     
  
