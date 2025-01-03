@@ -272,29 +272,21 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Caixa de texto para confissão */
 .confession-box {
-    position: fixed;
-    width: 90%;
-    height: 50%;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    width: 100%; /* Ocupa 100% do container */
+    height: 100%; /* Ocupa 100% da altura disponível */
+    padding: 10px; /* Pequena borda dentro da caixa de texto */
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #fc0404;
+    background-color: #fff;
+    color: #333;
+    resize: none; /* Remove o redimensionamento */
+    box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
     opacity: 0; /* Invisível inicialmente */
     display: none; /* Não ocupa espaço inicialmente */
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: 2px solid #fc0404;
-    border-radius: 5px;
-    padding: 12px;
-    color: #333;
-    z-index: 100;
-    resize: none;
-    max-width: 100vw;
-    word-wrap: break-word;
-    box-sizing: border-box;
-    background-color: #fff;
 }
-
-
+    
+ 
 /* Contêiner de categorias */
 .categories-container {
     background-color: #64edc4;
