@@ -264,17 +264,31 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Estilo para o container da caixa de texto */
 .confession-box-container {
+    position: relative; /* Mantém o contexto de posicionamento */
     width: 100%; /* Ocupa toda a largura disponível */
-    height: 100%; /* Ocupa toda a altura disponível */
-    padding: 10px; /* Pequena borda ao redor da caixa de texto */
+    height: calc(100vh - 50px); /* Ajusta a altura para 100% da tela menos 50px */
+    padding: 20px; /* Espaço entre a borda do container e a caixa de texto */
     box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    z-index: 10; /* Garante que o container está acima de outros elementos */
 }
+
 
 #confessionBox {
     display: none; /* Inicialmente oculto */
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    width: 100%; /* Ocupa toda a largura do container */
+    height: 100%; /* Ocupa toda a altura do container */
+    padding: 10px; /* Espaço interno da caixa de texto */
+    font-size: 16px; /* Tamanho da fonte */
+    border: 2px solid #fc0404; /* Define uma borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    resize: none; /* Remove a funcionalidade de redimensionar */
+    box-sizing: border-box; /* Inclui bordas e padding no tamanho total */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease; /* Transição suave para opacidade */
 }
+
 
 /* Caixa de texto expandida */
 .expanded {
@@ -310,7 +324,7 @@ a, .category-button, .submit-button, .privacy-link {
     padding: 10px; /* Borda interna do container */
     box-sizing: border-box;
     gap: 20px; /* Espaçamento entre os itens */
-    z-index: 100; /* Garante que o container ficará acima de outros elementos */
+    z-index: 10; /* Garante que o container ficará acima de outros elementos */
 }
 
 .categories-container .category-buttons {
@@ -532,8 +546,9 @@ button.clicked {
 
     /* Caixa de confissão padrão */
     .confession-box {
-        width: 95%; /* Aumenta a largura da caixa de texto em telas menores */
-        height: 200px; /* Aumenta a altura da caixa de texto */
+        width: 90%; /* Usa quase toda a largura */
+        height: 40vh; /* Ocupa 40% da altura da tela */
+        margin: 0 auto; /* Centraliza horizontalmente */
     }
 
     /* Botões de categoria */
