@@ -234,11 +234,9 @@ a, .category-button, .submit-button, .privacy-link {
 }
 
 
-/* Caixa de texto expandida */
-.expanded {
-    display: block !important; /* Força a exibição */
-    opacity: 1; /* Torna visível */
-    transition: opacity 0.5s ease; /* Transição suave */
+/* Banner visível após a animação */
+.banner.visible {
+    opacity: 1;
 }
 
 /* Banner */
@@ -259,11 +257,6 @@ a, .category-button, .submit-button, .privacy-link {
     align-items: center; /* Centraliza os elementos horizontalmente */
 }
 
-/* Banner visível após a animação */
-.banner.visible {
-    opacity: 1;
-}
-
 /* Adicionando transição suave para opacidade */
 .logo-container, h1, .info-text, .button-container {
     transition: opacity 1s ease-out;
@@ -276,6 +269,13 @@ a, .category-button, .submit-button, .privacy-link {
     height: 100%;
     padding: 10px; /* Pequena borda ao redor da caixa de texto */
     box-sizing: border-box;
+}
+
+/* Caixa de texto expandida */
+.expanded {
+    display: block !important; /* Força a exibição */
+    opacity: 1; /* Torna visível */
+    transition: opacity 0.5s ease; /* Transição suave */
 }
 
 .confession-box {
