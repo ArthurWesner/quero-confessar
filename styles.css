@@ -270,7 +270,14 @@ a, .category-button, .submit-button, .privacy-link {
 }
 
 
-/* Caixa de texto para confissão */
+/* Estilo para o container da caixa de texto */
+.confession-box-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px; /* Pequena borda ao redor da caixa de texto */
+    box-sizing: border-box;
+}
+
 .confession-box {
     width: 100%; /* Ocupa 100% do container */
     height: 100%; /* Ocupa 100% da altura disponível */
