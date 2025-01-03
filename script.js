@@ -109,6 +109,13 @@ function selectCategory(categoryName) {
     checkTermsAndShowButton();
 }
 
+document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const categoryName = button.textContent.trim(); // Obtém o texto do botão clicado
+        selectCategory(categoryName); // Chama a função
+    });
+});
+
 // Função para transição ao clicar no botão "CONFESSAR"
 function startConfession() {
     console.log("Iniciando animação do botão 'CONFESSAR'");
