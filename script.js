@@ -116,7 +116,6 @@ document.querySelectorAll('.category-button').forEach(button => {
     });
 });
 
-// Função para transição ao clicar no botão "CONFESSAR"
 function startConfession() {
     console.log("Iniciando animação do botão 'CONFESSAR'");
 
@@ -140,32 +139,29 @@ function startConfession() {
         bannerContainer.style.display = 'none';
 
         // Exibe a mensagem sombria
-        console.log("Exibindo mensagem sombria.");
         darkMessage.style.display = 'block';
         darkMessage.style.opacity = '1';
 
         setTimeout(() => {
-            console.log("Ocultando mensagem sombria.");
+            // Oculta a mensagem sombria
             darkMessage.style.opacity = '0';
 
             setTimeout(() => {
-                console.log("Mudando o fundo para branco e exibindo a caixa de texto e opções.");
-
-                // Muda o fundo da página para branco
+                // Exibe a caixa de texto e os botões após a mensagem sombria desaparecer
                 body.style.transition = 'background-color 1s ease';
                 body.style.backgroundColor = '#ffffff'; // Define o fundo branco
 
-                // Exibe a caixa de texto e os botões com animação
                 confessionBox.style.display = 'block';
                 confessionBox.style.opacity = '1';
-                confessionBox.classList.add('expanded'); // Adiciona uma animação suave para a caixa de texto
+                confessionBox.classList.add('expanded'); // Animação para a caixa de texto
 
                 optionsBanner.style.display = 'flex';
                 optionsBanner.style.opacity = '1';
             }, 1000); // Espera mais 1 segundo após a mensagem sombria desaparecer
-        }, 3000); // A frase sombria vai desaparecer após 3 segundos
-    }, 1000); // Espera 1 segundo para dar tempo da transição de opacidade do banner
+        }, 3000); // Mensagem sombria visível por 3 segundos
+    }, 1000); // Espera 1 segundo para a transição do banner
 }
+
 
 
 // Gera um código único usando a data e hora atual, na ordem: hora, minuto, segundo, dia, mês, ano, sem separadores
