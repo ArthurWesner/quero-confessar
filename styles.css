@@ -294,6 +294,7 @@ a, .category-button, .submit-button, .privacy-link {
     color: #333; /* Cor do texto */
     resize: none; /* Remove o redimensionamento */
     box-sizing: border-box; /* Inclui borda e padding no cálculo de tamanho */
+    z-index: 100; /* Garante que está acima de outros elementos */
 }
     
  
