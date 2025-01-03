@@ -236,8 +236,9 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Caixa de texto expandida */
 .expanded {
-    display: block; /* Torna visível */
-    opacity: 1;
+    display: block !important; /* Força a exibição */
+    opacity: 1; /* Torna visível */
+    transition: opacity 0.5s ease; /* Transição suave */
 }
 
 /* Banner */
