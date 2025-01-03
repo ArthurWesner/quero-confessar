@@ -241,7 +241,6 @@ a, .category-button, .submit-button, .privacy-link {
 
 /* Banner */
 .banner {
-    background-color: #6495ed;
     position: absolute;
     top: 5%; /* Fixa no topo da tela */
     flex-direction: column; /* Empilha os elementos verticalmente */
