@@ -1,0 +1,315 @@
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: #ff0000;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background-color: #cc0000;
+    }
+
+    ::-webkit-scrollbar-horizontal {
+    height: 12px;
+    }
+
+    ::-webkit-scrollbar-vertical {
+    width: 12px;
+    }
+
+    .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+    }
+
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 1s ease, color 1s ease;
+    }
+
+    .top-container {
+        background-color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ff0000;
+        padding-bottom: 15px;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+
+    h2 {
+    color: #ff0000;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: 10px;
+    }
+
+    .logo {
+        height: 60px;
+        max-width: 100%;
+        margin-top: 11px;
+        margin-left: 10px;
+    }
+
+    .search-bar {
+        flex-grow: 1;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .search-bar input[type="text"] {
+        width: 100%;
+        padding: 0 20px;
+        font-size: 18px;
+        border: 1px solid #bd1313;
+        border-radius: 25px;
+        box-sizing: border-box;
+        height: 45px;
+        display: block;
+    }
+
+    .search-bar input[type="text"]:focus {
+        border: 2px solid #ff0000;
+        outline: none;
+    }
+
+    button:hover {
+        background-color: #cc0000;
+    }
+
+    button:active {
+        background-color: #000000;
+        transform: scale(0.95);
+    }
+
+    .categories-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    }
+
+    .menu-item {
+        list-style: none;
+        position: relative;
+    }
+
+    .menu-item>a,
+    .search-buttons button {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    flex: 0 1 auto;
+    display: block;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    text-decoration: none;
+    background-color: #ff0000;
+    border-radius: 5px;
+    margin-left: 0;
+    width: 100%;
+    max-width: 250px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    cursor: pointer;
+        
+    }
+
+    .button:hover, 
+    .menu-item>a:hover {
+        background-color: #cc0000;
+    }
+
+    .button:active,
+    .menu-item>a:active {
+        background-color: #000000;
+        transform: scale(0.95);
+
+    }
+
+    .menu-item>a:hover {
+        background-color: #ff0000;
+    }
+
+    .submenu {
+        display: none;
+        list-style: none;
+        margin-top: 0rem;
+        padding-left: 20px;
+        position: absolute;
+        z-index: 1000;
+        background-color: #00000080;
+        padding: 15px 10px 5px 10px;
+        border-radius: 10px;
+    }
+
+    .submenu li {
+        margin-bottom: 0.5rem;
+    }
+
+    .submenu li a {
+        display: flex;
+        /* Usa flexbox para centralizar o conteúdo */
+        align-items: center;
+        /* Centraliza verticalmente */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+        color: white;
+        background-color: #444;
+        padding: 0.8rem;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+    .submenu li a:hover {
+        background-color: #ff0000;
+    }
+
+    .submenu.show {
+        display: block;
+        margin-left: 12px;
+    }
+
+.menu-container {
+    flex: 1; /* O menu ocupa a parte esquerda */
+    text-align: center; /* Alinha o texto à esquerda */
+    margin-right: 26px; /* Espaço entre o menu e os outros botões */
+}
+
+    .search-buttons {
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .confession-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .confession {
+        border-bottom: 1px solid #ff0000;
+        padding: 20px 0;
+    }
+
+
+    .confession p {
+        font-size: 1rem;
+    }
+
+    body.dark-mode {
+        background-color: #000000;
+        color: #ffffff;
+        transition: background-color 1s ease, color 1s ease;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode .category,
+    body.dark-mode .search-buttons button,
+    body.dark-mode .confession p {
+        color: #ffffff;
+    }
+
+    /* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .top-container {
+        background-color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ff0000;
+        padding-bottom: 15px;
+        width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+        box-sizing: border-box; /* Para garantir que o padding não ultrapasse a largura da tela */
+    }
+
+    .logo-container {
+        flex: 0 0 auto;
+    }
+
+    .search-bar {
+        flex: 1;
+        margin-right: 1em;
+        margin-left: 0.1em;
+    }
+
+    .search-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    /* Ajustando os itens dentro da barra de busca para ocupar o mesmo tamanho */
+    .menu-container, 
+    .clear, 
+    .search {
+        flex: 1; /* Garante que todos ocupem o mesmo espaço proporcional */
+        text-align: center; /* Alinha os itens no centro */
+    }
+
+    /* Ajusta o botão "Categorias" para ter o mesmo comportamento flexível */
+    .menu-container a {
+        width: 100%; /* Garante que o botão "Categorias" ocupe 100% do espaço disponível */
+        padding: 0.8rem;
+        text-align: center;
+        background-color: #ff0000;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s ease;
+    }
+
+    .top-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    h2 {
+        color: #ff0000;
+        font-size: 1em;
+    }
+}

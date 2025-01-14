@@ -1,0 +1,16 @@
+{
+    "builds": [
+        {
+            "src": "api/getConfessions.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/api/getConfessions",
+            "destination": "/api/getConfessions.js"
+        }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+}

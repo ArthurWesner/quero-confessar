@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confissões</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body class="fade-in">
+    <div class="top-container">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Procure pelo código ou palavras-chave">
+        </div>
+
+        <div class="search-buttons">
+            <div class="menu-container">
+                    <li class="menu-item">
+                        <a href="#" id="categories-button">Categorias</a>
+                        <ul class="submenu">
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Ação')">Ação</a></li>
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Reflexão')">Reflexão</a></li>
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Desejo')">Desejo</a></li>
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Medo')">Medo</a></li>
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Culpa')">Culpa</a></li>
+                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Obscuro')">Obscuro</a></li>
+                        </ul>
+                    </li>              
+            </div>
+            <button onclick="clearSearch()" class="clear">Limpar</button>
+            <button onclick="searchConfessions()" class="search">Pesquisar</button>
+        </div>
+
+    </div>
+
+    <div class="container fade-in">
+        <div class="confession-list"></div>
+    </div>
+    <script>
+        // Função para alternar a exibição do submenu
+function toggleSubmenu() {
+    const submenu = document.querySelector('.submenu');
+    submenu.classList.toggle('show');
+}
+
+// Fecha o submenu ao clicar em uma categoria
+function closeSubmenu() {
+    const submenu = document.querySelector('.submenu');
+    submenu.classList.remove('show');
+}
+
+// Detecta clique no botão de categorias para abrir/fechar o submenu
+const menuButton = document.querySelector('.menu-item > a');
+menuButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    toggleSubmenu();
+});
+
+// Fecha o submenu ao clicar em qualquer link dentro dele
+const submenuLinks = document.querySelectorAll('.submenu a');
+submenuLinks.forEach(link => {
+    link.addEventListener('click', closeSubmenu);
+});
+
+// Fecha o submenu ao clicar fora dele
+document.addEventListener('click', (event) => {
+    const menuContainer = document.querySelector('.menu-item');
+    const submenu = document.querySelector('.submenu');
+    if (!menuContainer.contains(event.target)) {
+        submenu.classList.remove('show');
+    }
+});
+
+
+
+        // Função para definir a categoria ativa
+        function setActiveCategory(category) {
+            console.log("Categoria selecionada:", category);
+            if (category === "Obscuro") { document.body.classList.add('dark-mode'); }
+            else { document.body.classList.remove('dark-mode'); }
+            // Aqui você pode adicionar a lógica para filtrar as confissões por categoria
+            const filteredConfessions = allConfessions.filter(confession => confession.category === category);
+            renderConfessions(filteredConfessions);
+        }
+
+        // Função para buscar confissões da API Zero Sheets
+async function getData() {
+    try {
+        // Token fictício para simulação de segurança
+        const TOKEN_READER = "r3ad3r_t0k3n_9348YHdsf9h0w";
+        
+        // Fazendo a solicitação com o token como parâmetro na URL
+        const response = await fetch(`https://api.zerosheets.com/v1/dwv?token=${TOKEN_READER}`);
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar confissões: " + response.statusText);
+        }
+
+        const data = await response.json();
+        console.log("Dados retornados pela API:", data); // Verifique a estrutura dos dados
+
+        // Ajusta o mapeamento de acordo com as colunas da planilha
+        allConfessions = data.map(item => ({
+            code: item["Código"] || "Sem Código",         // item["Código"] reflete a coluna A
+            text: item["Confissão"] || "Sem Confissão",   // item["Confissão"] reflete a coluna B
+            category: item["Categoria"] || "Sem Categoria", // item["Categoria"] reflete a coluna C
+        }));
+
+        renderConfessions(allConfessions);
+    } catch (error) {
+        console.error("Erro ao buscar confissões:", error);
+    }
+}
+
+
+        // Formata o texto da confissão para exibição com quebras de linha
+        function formatConfessionText(text) {
+            return text.replace(/\n/g, '<br>');
+        }
+
+        // Renderiza as confissões na página
+        function renderConfessions(confessions) {
+            const confessionList = document.querySelector('.confession-list');
+            confessionList.innerHTML = '';
+
+            if (confessions.length === 0) {
+                confessionList.innerHTML = '<p>Nenhuma confissão encontrada.</p>';
+                return;
+            }
+
+            const reversedConfessions = [...confessions].reverse();
+
+            reversedConfessions.forEach(confession => {
+                const confessionDiv = document.createElement('div');
+                confessionDiv.classList.add('confession');
+                const formattedText = formatConfessionText(confession.text);
+                confessionDiv.innerHTML = `
+                    <h2>CONFISSÃO: ${confession.code}</h2>
+                    <p>${formattedText}</p>
+                `;
+                confessionList.appendChild(confessionDiv);
+            });
+        }
+
+        // Limpa a busca e exibe todas as confissões
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => category.classList.remove('active'));
+            document.body.classList.remove('dark-mode');
+            renderConfessions(allConfessions);
+        }
+
+        // Busca confissões por texto ou código
+        function searchConfessions() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredConfessions = allConfessions.filter(confession =>
+                confession.text.toLowerCase().includes(query) || confession.code.toLowerCase().includes(query)
+            );
+            renderConfessions(filteredConfessions);
+        }
+
+        // Inicia o processo ao carregar a página
+        window.onload = getData; // Chama a função correta para carregar as confissões
+
+    </script>
+
+</body>
+
+</html>

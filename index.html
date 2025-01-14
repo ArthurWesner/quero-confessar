@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quero Confessar</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+
+    <div class="banner-container">
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo" class="logo">
+        
+        <!-- Título -->
+        <h1>QUERO CONFESSAR</h1>
+        
+        <!-- Texto explicativo -->
+        <p class="info-text">Sinta-se à vontade para abrir seu coração; porém, esteja ciente de que poderá receber opiniões variadas.</p>
+        
+        <!-- Botões -->
+        <div class="button-container">
+            <button class="confess-button" onclick="startConfession()">CONFESSAR</button>
+            <button class="judge-button" onclick="goToConfessions()">JULGAR</button>
+        </div>
+    </div>
+    
+    <!-- Mensagem Sombria -->
+    <div id="dark-message" class="dark-message">
+        ALGUNS SEGREDOS SÃO PESADOS DEMAIS PARA CARREGAR SOZINHO!
+    </div>
+
+    <!-- Caixa de texto para confissão -->
+    <div class="confession-box-container">
+        <textarea id="confessionBox" class="confession-box" placeholder="Escreva sua confissão aqui..."></textarea>
+    </div>
+
+    <!-- Banner responsivo abaixo da caixa de texto -->
+    <section class="banner" id="optionsBanner">
+        <!-- Contêiner de botões de categorias -->
+        <div class="categories-container">
+            <div class="category-buttons">
+                <button class="category-button" aria-label="Categoria Ação">Ação</button>
+                <button class="category-button" aria-label="Categoria Reflexão">Reflexão</button>
+                <button class="category-button" aria-label="Categoria Desejo">Desejo</button>
+                <button class="category-button" aria-label="Categoria Medo">Medo</button>
+                <button class="category-button" aria-label="Categoria Culpa">Culpa</button>
+                <button class="category-button" aria-label="Categoria Obscuro">Obscuro</button>
+        </div>
+
+        <div>
+            <a href="termos.html" class="privacy-link">Termo de Uso e Política de Privacidade</a>
+        </div> 
+
+        <div class="terms-check">
+            <input type="checkbox" id="termsCheckbox">
+            <label for="termsCheckbox">Li e aceito os Termos e Condições</label>
+        </div>
+
+        <div>
+            <button id="submitButton" class="submit-button" disabled>Enviar Confissão</button>
+        </div>
+
+    </section>
+
+    <!-- Tooltip de Mensagem -->
+    <div id="tooltip" class="tooltip" style="display: none;">Preencha todos os campos!</div>
+    <script src="script.js"></script> <!-- Carregar seu script depois -->
+
+</body>
+
+</html>
