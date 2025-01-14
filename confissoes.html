@@ -93,9 +93,6 @@ document.addEventListener('click', (event) => {
         // Função para buscar confissões da API Zero Sheets
 async function getData() {
     try {
-        // Token fictício para simulação de segurança
-        const TOKEN_READER = "r3ad3r_t0k3n_9348YHdsf9h0w";
-        
         // Fazendo a solicitação com o token como parâmetro na URL
         const response = await fetch(`https://api.zerosheets.com/v1/dwv?token=${TOKEN_READER}`);
 
