@@ -312,4 +312,19 @@
         color: #ff0000;
         font-size: 1em;
     }
+
+    .submenu.show {
+        display: block;
+        margin-left: 0.1em;
+    }
+    
+     .submenu {
+        display: none;
+        list-style: none;
+        padding-left: 20px;
+        position: absolute;
+        z-index: 1000;
+        padding: 0.5em 2em 0.1em 0.5em;
+        border-radius: 10px;
+    }
 }
