@@ -168,7 +168,6 @@ function sendToGoogleSheets(confession, category) {
         "Categoria": category,
         "Confissão": confession,
         "Data": new Date().toLocaleString("pt-BR"),
-        "TOKEN_VERIFICATION": "front_token_01"
     };
 
     console.log("Enviando dados para a planilha:", data);
