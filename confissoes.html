@@ -22,17 +22,17 @@
 
         <div class="search-buttons">
             <div class="menu-container">
-                    <li class="menu-item">
-                        <a href="#" id="categories-button">Categorias</a>
-                        <ul class="submenu">
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Ação')">Ação</a></li>
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Reflexão')">Reflexão</a></li>
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Desejo')">Desejo</a></li>
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Medo')">Medo</a></li>
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Culpa')">Culpa</a></li>
-                            <li><a href="javascript:void(0);" onclick="setActiveCategory('Obscuro')">Obscuro</a></li>
-                        </ul>
-                    </li>              
+                <li class="menu-item">
+                    <a href="#" id="categories-button">Categorias</a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Ação')">Ação</a></li>
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Reflexão')">Reflexão</a></li>
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Desejo')">Desejo</a></li>
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Medo')">Medo</a></li>
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Culpa')">Culpa</a></li>
+                        <li><a href="javascript:void(0);" onclick="setActiveCategory('Obscuro')">Obscuro</a></li>
+                    </ul>
+                </li>
             </div>
             <button onclick="clearSearch()" class="clear">Limpar</button>
             <button onclick="searchConfessions()" class="search">Pesquisar</button>
@@ -44,78 +44,80 @@
         <div class="confession-list"></div>
     </div>
     <script>
+        let allConfessions = []; // Inicializando a variável globalmente
+
         // Função para alternar a exibição do submenu
-function toggleSubmenu() {
-    const submenu = document.querySelector('.submenu');
-    submenu.classList.toggle('show');
-}
+        function toggleSubmenu() {
+            const submenu = document.querySelector('.submenu');
+            submenu.classList.toggle('show');
+        }
 
-// Fecha o submenu ao clicar em uma categoria
-function closeSubmenu() {
-    const submenu = document.querySelector('.submenu');
-    submenu.classList.remove('show');
-}
+        // Fecha o submenu ao clicar em uma categoria
+        function closeSubmenu() {
+            const submenu = document.querySelector('.submenu');
+            submenu.classList.remove('show');
+        }
 
-// Detecta clique no botão de categorias para abrir/fechar o submenu
-const menuButton = document.querySelector('.menu-item > a');
-menuButton.addEventListener('click', (event) => {
-    event.preventDefault(); // Previne o comportamento padrão do link
-    toggleSubmenu();
-});
+        // Detecta clique no botão de categorias para abrir/fechar o submenu
+        const menuButton = document.querySelector('.menu-item > a');
+        menuButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Previne o comportamento padrão do link
+            toggleSubmenu();
+        });
 
-// Fecha o submenu ao clicar em qualquer link dentro dele
-const submenuLinks = document.querySelectorAll('.submenu a');
-submenuLinks.forEach(link => {
-    link.addEventListener('click', closeSubmenu);
-});
+        // Fecha o submenu ao clicar em qualquer link dentro dele
+        const submenuLinks = document.querySelectorAll('.submenu a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', closeSubmenu);
+        });
 
-// Fecha o submenu ao clicar fora dele
-document.addEventListener('click', (event) => {
-    const menuContainer = document.querySelector('.menu-item');
-    const submenu = document.querySelector('.submenu');
-    if (!menuContainer.contains(event.target)) {
-        submenu.classList.remove('show');
-    }
-});
-
-
+        // Fecha o submenu ao clicar fora dele
+        document.addEventListener('click', (event) => {
+            const menuContainer = document.querySelector('.menu-item');
+            const submenu = document.querySelector('.submenu');
+            if (!menuContainer.contains(event.target)) {
+                submenu.classList.remove('show');
+            }
+        });
 
         // Função para definir a categoria ativa
         function setActiveCategory(category) {
             console.log("Categoria selecionada:", category);
             if (category === "Obscuro") { document.body.classList.add('dark-mode'); }
             else { document.body.classList.remove('dark-mode'); }
-            // Aqui você pode adicionar a lógica para filtrar as confissões por categoria
-            const filteredConfessions = allConfessions.filter(confession => confession.category === category);
+
+            // Filtra as confissões com base na categoria selecionada
+            const filteredConfessions = category === 'Todos'
+                ? allConfessions
+                : allConfessions.filter(confession => confession.category === category);
             renderConfessions(filteredConfessions);
         }
 
         // Função para buscar confissões da API Zero Sheets
-async function getData() {
-    try {
-        // Fazendo a solicitação com o token como parâmetro na URL
-        const response = await fetch(`https://api.zerosheets.com/v1/dwv?token=${TOKEN_READER}`);
+        async function getData() {
+            try {
+                // Fazendo a solicitação diretamente para a API Zero Sheets
+                const response = await fetch("https://sheetdb.io/api/v1/bf3rmzts6fa3x");
 
-        if (!response.ok) {
-            throw new Error("Erro ao buscar confissões: " + response.statusText);
+                if (!response.ok) {
+                    throw new Error("Erro ao buscar confissões: " + response.statusText);
+                }
+
+                const data = await response.json();
+                console.log("Dados retornados pela API:", data);
+
+                // Ajusta o mapeamento de acordo com as colunas da planilha
+                allConfessions = data.map(item => ({
+                    code: item["Código"] || "Sem Código",
+                    text: item["Confissão"] || "Sem Confissão",
+                    category: item["Categoria"] || "Sem Categoria",
+                }));
+
+                renderConfessions(allConfessions);
+            } catch (error) {
+                console.error("Erro ao buscar confissões:", error);
+            }
         }
-
-        const data = await response.json();
-        console.log("Dados retornados pela API:", data); // Verifique a estrutura dos dados
-
-        // Ajusta o mapeamento de acordo com as colunas da planilha
-        allConfessions = data.map(item => ({
-            code: item["Código"] || "Sem Código",         // item["Código"] reflete a coluna A
-            text: item["Confissão"] || "Sem Confissão",   // item["Confissão"] reflete a coluna B
-            category: item["Categoria"] || "Sem Categoria", // item["Categoria"] reflete a coluna C
-        }));
-
-        renderConfessions(allConfessions);
-    } catch (error) {
-        console.error("Erro ao buscar confissões:", error);
-    }
-}
-
 
         // Formata o texto da confissão para exibição com quebras de linha
         function formatConfessionText(text) {
@@ -125,23 +127,23 @@ async function getData() {
         // Renderiza as confissões na página
         function renderConfessions(confessions) {
             const confessionList = document.querySelector('.confession-list');
-            confessionList.innerHTML = '';
+            confessionList.innerHTML = ''; // Limpa as confissões anteriores
 
             if (confessions.length === 0) {
                 confessionList.innerHTML = '<p>Nenhuma confissão encontrada.</p>';
                 return;
             }
 
-            const reversedConfessions = [...confessions].reverse();
+            const reversedConfessions = [...confessions].reverse(); // Inverte as confissões para exibir as mais recentes primeiro
 
             reversedConfessions.forEach(confession => {
                 const confessionDiv = document.createElement('div');
                 confessionDiv.classList.add('confession');
                 const formattedText = formatConfessionText(confession.text);
                 confessionDiv.innerHTML = `
-                    <h2>CONFISSÃO: ${confession.code}</h2>
-                    <p>${formattedText}</p>
-                `;
+            <h2>CONFISSÃO: ${confession.code}</h2>
+            <p>${formattedText}</p>
+        `;
                 confessionList.appendChild(confessionDiv);
             });
         }
